@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
 const Product = require('../models/product.model');
-const ApiError = require('.././error/api-error-handler');
+const ApiError = require('../error/api-error');
 const { RolesEnum } = require('../global/constants');
 
-const createProduct = async ({ name, preparationTime, price, type }) => {
-    const product = new Product({ name, preparationTime, price, type });
+const createProduct = async ({ name, preparationTime, price, category, sellerId }) => {
+    const product = new Product({ name, preparationTime, price, category, sellerId });
     await product.save();
     return product;
 }
 
 // Get all products
-const getAllProduct = async () => {
+const getAllProducts = async () => {
     return await Product.find();
 
 
@@ -52,12 +52,11 @@ const getProductById = async (prodId) => {
     return product;
 }
 
-
 module.exports = {
     createProduct,
-    getAllProduct,
+    getAllProducts,
     getProductBySellerId,
     removeProductById,
     updateProductById,
-    getProductById
+    getProductById,
 }
