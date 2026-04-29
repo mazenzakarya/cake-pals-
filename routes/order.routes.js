@@ -6,10 +6,10 @@ const verifyToken = require('../middlewares/verifyToken');
 router.use(verifyToken);
 
 router.post('/', createOrder);
+router.get('/userOrders/', getOrdersForUser);
+router.get('/seller/:sellerId', getOrdersForSeller);
+router.get('/:id', getOrderById);
 router.put('/:id/status', updateOrderStatus);
 router.put('/:id/cancel', cancelOrder);
-router.get('/:id', getOrderById);
-router.get('/seller/:sellerId', getOrdersForSeller);
-router.get('/user/:userId', getOrdersForUser);
 
 module.exports = router;
