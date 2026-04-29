@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Product = require('../models/product.model');
 const User = require('../models/user.model');
 const ApiError = require('../error/api-error');
+const Rating = require('../models/rating.model');
 
 const addRating = async (userId, productId, orderId, rating, comment) => {
   const product = await Product.findById(productId);

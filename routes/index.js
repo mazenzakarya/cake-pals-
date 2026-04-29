@@ -3,11 +3,13 @@ const router = express.Router();
 const authRoutes = require('./auth.routes');
 const productRoutes = require('./product.routes');
 const ratingRoutes = require('./rating.routes');
+const orderRoutes = require('./order.routes');
 
 // Use auth routes
 router.use('/auth', authRoutes);
 router.use('/products', productRoutes);
 router.use('/ratings', ratingRoutes);
+router.use('/orders', orderRoutes);
 
 
 router.get('/', (req, res) => {

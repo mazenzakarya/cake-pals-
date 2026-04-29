@@ -27,6 +27,11 @@ const productSchema = new mongoose.Schema(
         ratingsAverage: {
             type: Number,
             default: 0,
+        },
+        preparationTime: {
+            type: Number,
+            required: true,
+            min: 1
         }
     },
     { timestamps: true }

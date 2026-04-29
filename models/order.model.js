@@ -5,6 +5,8 @@ const orderSchema = new mongoose.Schema(
     {
         collectionTime: {
             type: Date,
+            required: true
+
         },
         productId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -24,7 +26,14 @@ const orderSchema = new mongoose.Schema(
             type: String,
             enum: orderStatusEnum,
             default: orderStatusEnum.PENDING,
+        },
+        quantity: {
+            type: Number,
+            default: 1,
+            min: 1
         }
     },
     { timestamps: true }
 );
+
+module.exports = mongoose.model('Order', orderSchema);
